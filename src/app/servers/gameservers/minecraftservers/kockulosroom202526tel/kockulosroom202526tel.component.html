@@ -170,18 +170,32 @@
       <div class="feed-section">
         <h2 class="feed-title">A csatlakozáshoz szükséges lépések</h2>
 
-        <!-- Getting Started -->
+        <!-- Steps Container -->
         <div class="guide-section">
-          <h3> Kezdés</h3>
-          <div class="guide-content">
-            <div class="guide-step">
-              <img src="media/explorer_A1mbSkjxdq.png" alt="Szerver csatlakozás" class="guide-img">
+          <div class="guide-steps">
+            <!-- Step 1 Template -->
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Lépés címe</h4>
+                <p>Ide írd a lépés részletes leírását. Ez a szöveg a bal oldalon jelenik meg, míg a kép (ha van) a jobb oldalon.</p>
+              </div>
+              <div class="step-image-container" (click)="openImage('media/explorer_A1mbSkjxdq.png')">
+                <img src="media/explorer_A1mbSkjxdq.png" alt="Lépés illusztráció" class="step-img">
+                <div class="zoom-hint"><span class="icon">🔍</span> Nagyítás</div>
+              </div>
             </div>
 
+            <!-- Step 2 Template (No Image) -->
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Második lépés</h4>
+                <p>Ez egy kép nélküli lépés példája. A szöveg kitölti a rendelkezésre álló helyet.</p>
+              </div>
+            </div>
           </div>
         </div>
-
-    
 
         <!-- Important Commands -->
         <div class="guide-section">
@@ -189,8 +203,8 @@
           <div class="guide-content">
             <div class="commands-grid">
               <div class="command-card">
-                <code>/spawn</code>
-                <p>Visszateleportálás a spawn pontra</p>
+                <code>/reg jelszó jelszó</code>
+                <p>Regisztráció belépéskor</p>
               </div>
               <div class="command-card">
                 <code>/sethome [név]</code>
@@ -263,5 +277,13 @@
       </div>
 
     </main>
+  </div>
+
+  <!-- Image Modal -->
+  <div class="image-modal" *ngIf="selectedImage" (click)="closeImage()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <img [src]="selectedImage" alt="Nagyított kép">
+      <button class="close-btn" (click)="closeImage()">×</button>
+    </div>
   </div>
 </div>

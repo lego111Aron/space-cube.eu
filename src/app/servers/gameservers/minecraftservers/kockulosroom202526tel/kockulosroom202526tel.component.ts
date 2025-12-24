@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 
 export class Kockulosroom202526telComponent {
   isCopied = false;
+  selectedImage: string | null = null;
 
   copyToClipboard(event: MouseEvent): void {
     const serverAddress = 'mc.space-cube.hu';
@@ -23,5 +24,11 @@ export class Kockulosroom202526telComponent {
     });
   }
 
+  openImage(imageSrc: string): void {
+    this.selectedImage = imageSrc;
+  }
 
+  closeImage(): void {
+    this.selectedImage = null;
+  }
 }
