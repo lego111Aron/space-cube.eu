@@ -14,24 +14,24 @@
         <!-- Server Header -->
         <div class="profile-header">
           <div class="server-icon"><img src="media/server-icon.png" alt="Server Icon"></div>
-          <h1 class="server-name">Kockulós Room</h1>
-          <p class="server-season">2025/26 Tél</p>
+          <h1 class="server-name">{{ 'server.header.name' | t }}</h1>
+          <p class="server-season">{{ 'server.season' | t }}</p>
         </div>
 
         <!-- Launch Status -->
         <div class="launch-badge">
           <div class="badge-content">
-            <span class="badge-label">Szerver indulás</span>
-            <span class="badge-date">2025.12.26</span>
+            <span class="badge-label">{{ 'launch.label' | t }}</span>
+            <span class="badge-date">{{ 'launch.date' | t }}</span>
           </div>
         </div>
 
         <!-- Server Address -->
         <div class="server-connection">
-          <label>Szerver Cím</label>
+          <label>{{ 'server.connection.label' | t }}</label>
           <div class="server-address" title="Kattints a másoláshoz" (click)="copyToClipboard($event)"
             [class.copied]="isCopied">
-            <code style="user-select: none;">mc.space-cube.hu</code>
+            <code class="no-select">{{ serverAddress }}</code>
             <span class="copy-feedback" *ngIf="isCopied">✓ Másolva!</span>
           </div>
         </div>
@@ -39,32 +39,32 @@
         <!-- Technical Specs -->
         <div class="profile-section">
           <h3 class="section-header">
-            Technikai Adatok
+            {{ 'technical.title' | t }}
           </h3>
           <div class="specs-list">
             <div class="spec-item">
-              <span class="spec-label">Verzió</span>
-              <span class="spec-value">1.21.10</span>
+              <span class="spec-label">{{ 'specs.version.label' | t }}</span>
+              <span class="spec-value">{{ 'specs.version.value' | t }}</span>
             </div>
             <div class="spec-item">
-              <span class="spec-label">Modloader</span>
-              <span class="spec-value">Fabric</span>
+              <span class="spec-label">{{ 'specs.modloader.label' | t }}</span>
+              <span class="spec-value">{{ 'specs.modloader.value' | t }}</span>
             </div>
             <div class="spec-item">
-              <span class="spec-label">Max. játékosok</span>
-              <span class="spec-value">15 fő</span>
+              <span class="spec-label">{{ 'specs.maxPlayers.label' | t }}</span>
+              <span class="spec-value">{{ 'specs.maxPlayers.value' | t }}</span>
             </div>
             <div class="spec-item">
-              <span class="spec-label">Világ típus</span>
-              <span class="spec-value">Survival</span>
+              <span class="spec-label">{{ 'specs.worldType.label' | t }}</span>
+              <span class="spec-value">{{ 'specs.worldType.value' | t }}</span>
             </div>
             <div class="spec-item">
-              <span class="spec-label">Világ generálása</span>
-              <span class="spec-value">Terralit + Tectonic</span>
+              <span class="spec-label">{{ 'specs.worldGen.label' | t }}</span>
+              <span class="spec-value">{{ 'specs.worldGen.value' | t }}</span>
             </div>
             <div class="spec-item">
-              <span class="spec-label">Java verzió</span>
-              <span class="spec-value">21+</span>
+              <span class="spec-label">{{ 'specs.javaVersion.label' | t }}</span>
+              <span class="spec-value">{{ 'specs.javaVersion.value' | t }}</span>
             </div>
           </div>
         </div>
@@ -72,17 +72,17 @@
         <!-- Quick Links -->
         <div class="profile-section">
           <h3 class="section-header">
-            Gyors Linkek
+            {{ 'quickLinks.title' | t }}
           </h3>
           <div class="quick-links">
             <!-- <a href="https://docs.google.com/document/d/189ClE1IsYVXVfYHYaOfjZH7mP9xcX8pdOHjjLP_lYLQ/edit?usp=sharing" 
                class="quick-link" target="_blank" rel="noopener noreferrer">
               <span>Telepítési Útmutató</span>
             </a> -->
-            <a href="https://drive.google.com/file/d/1cRDApNdXq2248ZnZcO2Fs12jsA1INh3D/view?usp=sharing"
+            <a [href]="links.modsPackage"
               class="quick-link" target="_blank" rel="noopener noreferrer">
               <span class="link-icon">📦</span>
-              <span>Szükséges Modok</span>
+              <span>{{ 'quickLinks.mods' | t }}</span>
             </a>
           </div>
         </div>
@@ -90,12 +90,9 @@
         <!-- Support -->
         <div class="profile-section support-section">
           <h3 class="section-header">
-            Kapcsolat
+            {{ 'support.title' | t }}
           </h3>
-          <p class="support-text">
-            Kérdésed van? Jelezd a <strong>Kockulós Room</strong> Discord szerveren a
-            <code>&#64;MinecraftServerAdmin</code> taggel!
-          </p>
+          <p class="support-text" [innerHTML]="('support.textHtml' | t)"></p>
         </div>
       </div>
     </aside>
@@ -107,44 +104,43 @@
       <div class="important-notice">
         <div class="notice-content">
           <span class="notice-icon">⚠️</span>
-          <p>Abban az esetben ha részvettél a terheléses tesztelésen akkor is töltsd le újra modokat és olvasd el a csatlakozási lépések <a (click)="scrollToStep5()" class="step-link">5. pontját</a>.</p>
+          <p>{{ 'notice.text' | t }} <a (click)="scrollToStep5()" class="step-link">{{ 'notice.link' | t }}</a>.</p>
         </div>
       </div>
 
       <!-- Requirements Section -->
       <div class="feed-section">
-        <h2 class="feed-title">A csatlakozáshoz szükséges szoftverek</h2>
+        <h2 class="feed-title">{{ 'requirements.title' | t }}</h2>
 
         <div class="requirement-box">
-          <h3>Prism Launcher</h3>
-          <p>A Minecraft futtatásához szükséges egy launcher. Bár valószínűleg mással is megoldható mi csak ehhez
-            nyújtunk támogatást.</p>
+          <h3>{{ 'requirements.prism.title' | t }}</h3>
+          <p>{{ 'requirements.prism.desc' | t }}</p>
 
           <div class="download-grid">
             <div class="download-card">
-              <h4>Eredeti Minecraft fiókkal</h4>
+              <h4>{{ 'download.original.title' | t }}</h4>
               <div class="download-links">
-                <a href="https://github.com/PrismLauncher/PrismLauncher/releases/download/9.4/PrismLauncher-Windows-MSVC-Setup-9.4.exe"
+                <a [href]="links.prismOriginalWindows"
                   class="download-btn" target="_blank" rel="noopener noreferrer">
-                  <span class="icon">🪟</span> Windows
+                  <span class="icon">🪟</span> {{ 'download.windows' | t }}
                 </a>
-                <a href="https://github.com/PrismLauncher/PrismLauncher/releases/download/9.4/PrismLauncher-Linux-x86_64.AppImage"
+                <a [href]="links.prismOriginalLinux"
                   class="download-btn" target="_blank" rel="noopener noreferrer">
-                  <span class="icon">🐧</span> Linux
+                  <span class="icon">🐧</span> {{ 'download.linux' | t }}
                 </a>
               </div>
             </div>
 
             <div class="download-card">
-              <h4>Eredeti fiók nélkül</h4>
+              <h4>{{ 'download.cracked.title' | t }}</h4>
               <div class="download-links">
-                <a href="https://github.com/Diegiwg/PrismLauncher-Cracked/releases/download/9.4/PrismLauncher-Windows-MinGW-w64-Setup-9.4.exe"
+                <a [href]="links.prismCrackedWindows"
                   class="download-btn" target="_blank" rel="noopener noreferrer">
-                  <span class="icon">🪟</span> Windows
+                  <span class="icon">🪟</span> {{ 'download.windows' | t }}
                 </a>
-                <a href="https://github.com/Diegiwg/PrismLauncher-Cracked/releases/download/9.4/PrismLauncher-Linux-x86_64.AppImage"
+                <a [href]="links.prismCrackedLinux"
                   class="download-btn" target="_blank" rel="noopener noreferrer">
-                  <span class="icon">🐧</span> Linux
+                  <span class="icon">🐧</span> {{ 'download.linux' | t }}
                 </a>
               </div>
             </div>
@@ -153,22 +149,20 @@
 
         <div class="requirements-grid">
           <div class="requirement-box">
-            <h3>Java 21</h3>
-            <p>Szükséges a játék futtatásához (legalább 21-es verzió, csak ezzel lett tesztelve)</p>
-            <a href="https://download.oracle.com/java/21/archive/jdk-21.0.8_windows-x64_bin.exe"
+            <h3>{{ 'requirements.java.title' | t }}</h3>
+            <p>{{ 'requirements.java.desc' | t }}</p>
+            <a [href]="links.javaWindows"
               class="download-btn large" target="_blank" rel="noopener noreferrer">
-              <span class="icon">☕</span> Java 21 letöltése (Windows)
+              <span class="icon">☕</span> {{ 'requirements.java.button' | t }}
             </a>
           </div>
 
           <div class="requirement-box">
-            <h3>Szükséges modok</h3>
-            <p>Ez a csomag nem csak a modokat hanem minden azokhoz tartozó beállítást is tartalmaz. (A beállításokat a
-              felhasználó szabadon állíthatja, de ajánlott elősször a már megadott beállításokkal felcsatlakozni a hibák
-              kiszűrése érdekében.) </p>
-            <a href="https://drive.google.com/file/d/1cRDApNdXq2248ZnZcO2Fs12jsA1INh3D/view?usp=sharing"
+            <h3>{{ 'requirements.mods.title' | t }}</h3>
+            <p>{{ 'requirements.mods.desc' | t }}</p>
+            <a [href]="links.modsPackage"
               class="download-btn large" target="_blank" rel="noopener noreferrer">
-              <span class="icon">📦</span> Modok letöltése
+              <span class="icon">📦</span> {{ 'requirements.mods.button' | t }}
             </a>
           </div>
         </div>
@@ -176,7 +170,7 @@
 
       <!-- Game Guide Section -->
       <div class="feed-section">
-        <h2 class="feed-title">A csatlakozáshoz szükséges lépések</h2>
+        <h2 class="feed-title">{{ 'guide.title' | t }}</h2>
 
         <!-- Steps Container -->
         <div class="guide-section">
@@ -185,107 +179,102 @@
             <div class="step-item">
               <div class="step-number">1</div>
               <div class="step-content">
-                <h4>Telepítés</h4>
-                <p>A Prism Launcher-t és Java-t telepíteni kell...</p>
+                <h4>{{ 'step1.title' | t }}</h4>
+                <p>{{ 'step1.desc' | t }}</p>
               </div>
             </div>
+            <hr>
 
             <!-- Step 2 -->
             <div class="step-item">
               <div class="step-number">2</div>
               <div class="step-content">
-                <h4>Memória lekötése</h4>
-                <p>A Minecraft számára ajánlott 8 GB memória lekötése. Abban az esetben ha a gépe erőforrásai ezt nem
-                  engedik meg akkor a játék csupán 4GB rammal is képes futni.</p>
+                <h4>{{ 'step2.title' | t }}</h4>
+                <p>{{ 'step2.desc' | t }}</p>
               </div>
               <div class="step-image-container" (click)="openImage('media/explorer_be0AokfKig.png')">
                 <img src="media/explorer_be0AokfKig.png" alt="Lépés illusztráció" class="step-img">
                 <div class="zoom-hint"><span class="icon">🔍</span> Nagyítás</div>
               </div>
             </div>
+            <hr>
 
             <!-- Step 3 -->
             <div class="step-item">
               <div class="step-number">3</div>
               <div class="step-content">
-                <h4>Java verzió kiválasztása</h4>
-                <p>Be kell állítani a megfelelő Java verziót a Prism Launcher-ben. Legalább 21-es verzió szükséges, de
-                  az a legjobb ha pontossan a 21-es verziót használjuk. (A képen a 21.0.5 verzió látható, de csak az a
-                  lényeg, hogy a fő verziószám azaz "21" egyezzen meg, a többi részlet nem számít.)</p>
+                <h4>{{ 'step3.title' | t }}</h4>
+                <p>{{ 'step3.desc' | t }}</p>
               </div>
               <div class="step-image-container" (click)="openImage('media/explorer_A1mbSkjxdq.png')">
                 <img src="media/explorer_A1mbSkjxdq.png" alt="Lépés illusztráció" class="step-img">
                 <div class="zoom-hint"><span class="icon">🔍</span> Nagyítás</div>
               </div>
             </div>
+            <hr>
 
             <!-- Step 4/A -->
             <div class="step-item">
               <div class="step-number">4/A</div>
               <div class="step-content">
-                <h4>Bejelentkezés eredeti Minecraft fiókkal</h4>
-                <p>A bejelentkezés szükséges a felhasználó azonosításához és a szerverhez való csatlakozáshoz.</p>
+                <h4>{{ 'step4a.title' | t }}</h4>
+                <p>{{ 'step4a.desc' | t }}</p>
               </div>
               <div class="step-image-container" (click)="openImage('media/explorer_dA6MMz88N0.png')">
                 <img src="media/explorer_dA6MMz88N0.png" alt="Lépés illusztráció" class="step-img">
                 <div class="zoom-hint"><span class="icon">🔍</span> Nagyítás</div>
               </div>
             </div>
+            <hr>
 
             <!-- Step 4/B -->
             <div class="step-item">
               <div class="step-number">4/B</div>
               <div class="step-content">
-                <h4>Tört fióknév/játékosnév választás</h4>
-                <p>A névadás szükséges a felhasználó azonosításához és a szerverhez való csatlakozáshoz. (A szerver
-                  errez a névvel azonosítja a felhasználót ezért ennek a változtatása esetén a új felhasználóként kezeli
-                  a játékost)</p>
+                <h4>{{ 'step4b.title' | t }}</h4>
+                <p>{{ 'step4b.desc' | t }}</p>
               </div>
               <div class="step-image-container" (click)="openImage('media/explorer_Pqpg7ywxY2.png')">
                 <img src="media/explorer_Pqpg7ywxY2.png" alt="Lépés illusztráció" class="step-img">
                 <div class="zoom-hint"><span class="icon">🔍</span> Nagyítás</div>
               </div>
             </div>
+            <hr>
 
             <!-- Step 5 -->
             <div class="step-item" id="step-5">
               <div class="step-number">5</div>
               <div class="step-content">
-                <h4>Instance létrehozása</h4>
-                <p>A Prism Launcher-ben létre kell hozni egy új instance-t a szerverhez való csatlakozáshoz (a launcher
-                  több ilyen instance-t is kezelhet egyszerre ezek egymástól függetlenül működnek). Az instance neve
-                  alapesetben az lesz ami a zip neve is, ha már van ugyan olyan nevű instance akkor ezt érdemes lehet
-                  megváltoztatni, vagy a régi instance-t kitörölni. <b>(A letöltött zip neve eltérhet a képen szereplő
-                    nevétől ez nem probléma)</b></p>
+                <h4>{{ 'step5.title' | t }}</h4>
+                <p>{{ 'step5.desc' | t }}</p>
               </div>
               <div class="step-image-container" (click)="openImage('media/explorer_eB0pDSxSac.png')">
                 <img src="media/explorer_eB0pDSxSac.png" alt="Lépés illusztráció" class="step-img">
                 <div class="zoom-hint"><span class="icon">🔍</span> Nagyítás</div>
               </div>
             </div>
+            <hr>
 
             <!-- Step 6 -->
             <div class="step-item">
               <div class="step-number">6</div>
               <div class="step-content">
-                <h4>Játék indítása</h4>
-                <p>Egy új instance első indítása sok időt vehet igénybe, az ezt követő indítások már gyorsabbak lesznek.
-                  <b>(Az instance neve eltérhet a képen szereplő nevétől ez nem probléma)</b></p>
+                <h4>{{ 'step6.title' | t }}</h4>
+                <p>{{ 'step6.desc' | t }}</p>
               </div>
               <div class="step-image-container" (click)="openImage('media/explorer_dgOwRQXMGg.png')">
                 <img src="media/explorer_dgOwRQXMGg.png" alt="Lépés illusztráció" class="step-img">
                 <div class="zoom-hint"><span class="icon">🔍</span> Nagyítás</div>
               </div>
             </div>
+            <hr>
 
             <!-- Step 7 -->
             <div class="step-item">
               <div class="step-number">7</div>
               <div class="step-content">
-                <h4>Csatlakozás a szerverre</h4>
-                <p>Amikor megnyitja a <b>Multiplayer</b> menüt akkor ott automatikusan megjelenik a szerver a listában,
-                  ha nem akkor kézzel hozzáadhatja az IP címet az <b>Add Server</b> gombra kattintva. A szerver neve
-                  szabadon választható, a domain neve:<code>mc.space-cube.net</code> Az első belépést követően a szerver azoktól a felhasználóktól akiknek nincs eredeti Minecraft fiókja Regisztrációt fog kérni (az ehhez szükséges parancsot lejebb láthatod).</p>
+                <h4>{{ 'step7.title' | t }}</h4>
+                <p [innerHTML]="('step7.descHtml' | t)"></p>
               </div>
             </div>
           </div>
@@ -293,20 +282,20 @@
 
         <!-- Important Commands -->
         <div class="guide-section">
-          <h3>Belépés után</h3>
+          <h3>{{ 'commands.title' | t }}</h3>
           <div class="guide-content">
             <div class="commands-grid">
               <div class="command-card">
                 <code>/reg [jelszó] [jelszó]</code>
-                <p>Regisztráció belépéskor</p>
+                <p>{{ 'commands.reg.label' | t }}</p>
               </div>
               <div class="command-card">
                 <code>/login [jelszó]</code>
-                <p>Bejelentkezés a szerverre</p>
+                <p>{{ 'commands.login.label' | t }}</p>
               </div>                       
               <div class="command-card">
                 <code>/skin set ...</code>
-                <p>Skin beállítása (több különböző módon is lehetséges)</p>
+                <p>{{ 'commands.skin.label' | t }}</p>
               </div>           
             </div>
           </div>
@@ -314,17 +303,17 @@
 
         <!-- Potential problems -->
         <div class="guide-section">
-          <h3>Potenciális problémák</h3>
+          <h3>{{ 'problems.title' | t }}</h3>
           <div class="guide-content">
             <div class="problem-item">
-              <h4>Szerver alvó üzemmód</h4>
-              <p>Abban az esetben ha senki sincs a szerveren 10 percen keresztül akkor a szerver automatikusan átkerül alvó üzemmódba. Ha ilyenkor próbál valaki csatlakozni az első csatlakozási kísérlet sikertelen lesz mivel a szerver éppen ébred. Ilyenkor kérjük próbálkozzon újra a csatlakozással néhány másodperc múlva (kb 10s).</p>
+              <h4>{{ 'problems.sleep.title' | t }}</h4>
+              <p>{{ 'problems.sleep.desc' | t }}</p>
             </div>
             <div class="problem-item">
-              <h4>Whitelist probléma</h4>
-              <p>Abban az esetben ha a szerver azt írja ki hogy nem vagy rajta a whitelist-en akkor kérjük jelezd a <code>&#64;MinecraftServerAdmin</code> taggel a Kockulós Room Discord szerveren.</p>
+              <h4>{{ 'problems.whitelist.title' | t }}</h4>
+              <p [innerHTML]="('problems.whitelist.desc' | t)"></p>
             </div>
-          </div>
+          </div> 
         </div>
 
         <!-- Rules -->
@@ -381,6 +370,6 @@
     <div class="modal-content" (click)="$event.stopPropagation()">
       <img [src]="selectedImage" alt="Nagyított kép">
       <button class="close-btn" (click)="closeImage()">×</button>
-    </div>
+    </div> 
   </div>
 </div>
