@@ -24,5 +24,5 @@ export const LINKS: LinksConfig = {
   modsPackage:
     'https://drive.google.com/file/d/1Ytb-IEYCOTkbgrbLn0yMB0Rqzc2MtQep/view?usp=sharing',
 
-  serverDomain: 'mc.space-cube.hu',
+  serverDomain: 'mc.space-cube.eu',
 };

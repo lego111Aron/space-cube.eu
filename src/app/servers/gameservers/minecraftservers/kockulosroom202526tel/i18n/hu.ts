@@ -67,7 +67,7 @@ export const HU_KOCKULOSROOM_202526TEL: Record<string, string> = {
   'step6.desc': 'Egy új instance első indítása sok időt vehet igénybe, az ezt követő indítások már gyorsabbak lesznek. (Az instance neve eltérhet a képen szereplő nevétől, ez nem probléma)',
 
   'step7.title': 'Csatlakozás a szerverre',
-  'step7.descHtml': 'Amikor megnyitja a <b>Multiplayer</b> menüt akkor ott automatikusan megjelenik a szerver a listában, ha nem akkor kézzel hozzáadhatja az IP címet az <b>Add Server</b> gombra kattintva. A szerver neve szabadon választható, a domain neve:<code>mc.space-cube.hu</code> Az első belépést követően a szerver azoktól a felhasználóktól, akiknek nincs eredeti Minecraft-fiókja, regisztrációt fog kérni (az ehhez szükséges parancsot lejjebb láthatod).',
+  'step7.descHtml': 'Amikor megnyitja a <b>Multiplayer</b> menüt akkor ott automatikusan megjelenik a szerver a listában, ha nem akkor kézzel hozzáadhatja az IP címet az <b>Add Server</b> gombra kattintva. A szerver neve szabadon választható, a domain neve: <code>mc.space-cube.eu</code> Az első belépést követően a szerver azoktól a felhasználóktól, akiknek nincs eredeti Minecraft-fiókja, regisztrációt fog kérni (az ehhez szükséges parancsot lejjebb láthatod).',
 
   'commands.title': 'Belépés után',
   'commands.reg.label': 'Regisztráció belépéskor',

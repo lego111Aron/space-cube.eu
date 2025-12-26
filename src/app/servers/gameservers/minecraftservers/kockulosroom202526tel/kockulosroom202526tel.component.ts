@@ -32,7 +32,7 @@ export class Kockulosroom202526telComponent {
   }
 
   copyToClipboard(event: MouseEvent): void {
-    const serverAddress = 'mc.space-cube.hu';
+    const serverAddress = 'mc.space-cube.eu';
     navigator.clipboard.writeText(serverAddress).then(() => {
       this.isCopied = true;
       setTimeout(() => {
